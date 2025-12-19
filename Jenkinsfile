@@ -1,14 +1,24 @@
 pipeline{
+    
+    agent any
+        
+        stages{
+            stage('checkout')
+            {
+                steps{
+                    git branch: 'feature1', url: 'https://github.com/deekshit636/c-proj-repo.git'
+                }
+            }
 
-  agent any
+            stage('build'){
 
-  stages{
-stage('checkout')
-    {
-        steps{
-git branch: 'feature1', url: 'https://github.com/deekshit636/c-proj-repo.git'
+              steps{
+                sh '''
+                        mvn clean package
+                '''
+              }
+            }
+            
         }
-    }
-  }
 
 }

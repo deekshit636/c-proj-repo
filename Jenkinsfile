@@ -10,15 +10,11 @@ pipeline{
                 }
             }
 
-            stage('build'){
-
-              steps{
-                sh '''
-                        mvn clean package
-                '''
-              }
-            }
-            
+		stage('dummy'){
+			steps{
+				echo "Hello dummy"
+			}
+		}	           
         }
 
 }
